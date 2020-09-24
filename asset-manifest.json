@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/cal-kids/static/css/main.6dd4ed5a.chunk.css",
-    "main.js": "/cal-kids/static/js/main.43d088f2.chunk.js",
-    "main.js.map": "/cal-kids/static/js/main.43d088f2.chunk.js.map",
+    "main.css": "/cal-kids/static/css/main.84360796.chunk.css",
+    "main.js": "/cal-kids/static/js/main.b149f9aa.chunk.js",
+    "main.js.map": "/cal-kids/static/js/main.b149f9aa.chunk.js.map",
     "runtime-main.js": "/cal-kids/static/js/runtime-main.cd373f46.js",
     "runtime-main.js.map": "/cal-kids/static/js/runtime-main.cd373f46.js.map",
     "static/js/2.1583ff94.chunk.js": "/cal-kids/static/js/2.1583ff94.chunk.js",
     "static/js/2.1583ff94.chunk.js.map": "/cal-kids/static/js/2.1583ff94.chunk.js.map",
     "index.html": "/cal-kids/index.html",
-    "precache-manifest.8fc8225292f798e1e78fa957a0c4e551.js": "/cal-kids/precache-manifest.8fc8225292f798e1e78fa957a0c4e551.js",
+    "precache-manifest.c6c353094aedd7aa17bf9128bef4189d.js": "/cal-kids/precache-manifest.c6c353094aedd7aa17bf9128bef4189d.js",
     "service-worker.js": "/cal-kids/service-worker.js",
-    "static/css/main.6dd4ed5a.chunk.css.map": "/cal-kids/static/css/main.6dd4ed5a.chunk.css.map",
+    "static/css/main.84360796.chunk.css.map": "/cal-kids/static/css/main.84360796.chunk.css.map",
     "static/js/2.1583ff94.chunk.js.LICENSE.txt": "/cal-kids/static/js/2.1583ff94.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.cd373f46.js",
     "static/js/2.1583ff94.chunk.js",
-    "static/css/main.6dd4ed5a.chunk.css",
-    "static/js/main.43d088f2.chunk.js"
+    "static/css/main.84360796.chunk.css",
+    "static/js/main.b149f9aa.chunk.js"
   ]
 }
