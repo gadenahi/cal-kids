@@ -3,6 +3,7 @@ import '../../static/Landing.css'
 import { useForm } from 'react-hook-form'
 import { Row, Col } from 'react-bootstrap';
 import { GlobalContext } from '../js/Global';
+import Typist from 'react-typist'
 
 
 function Landing() {
@@ -26,7 +27,7 @@ function Landing() {
 
   const Input = ({ label, register, required }) => ( 
     <>
-      <h3>Provide Your Name</h3>
+        <h3>Start with your name</h3>
       <input name={label} ref={register({ required })} />
     </>
   );
@@ -49,7 +50,9 @@ function Landing() {
   return (
     <Col xs={12} md={12} lg={12} >
       <div className="landing-section">
-    <h2>Cal Kids</h2>
+    <Typist className="landing-margin">
+      <h1>Cal Kids</h1>
+    </Typist>
     <form onSubmit={handleSubmit(onSubmit)}>
     <Input label="Name" register={register} required />
     <input type="submit"  value="Start" />
