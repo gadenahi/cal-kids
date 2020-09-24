@@ -9,8 +9,7 @@ import { GlobalProvider } from './components/js/Global';
 ReactDOM.render(
   <GlobalProvider>
     <App />
-  </GlobalProvider>
-    ,
+  </GlobalProvider>,
   document.getElementById('root')
 );
 

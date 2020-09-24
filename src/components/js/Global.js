@@ -7,6 +7,7 @@ export const GlobalProvider = ({
 }) => {
     const [startState, setStartState] = useState(false);
     const [inputName, setInputName] = useState("");
+    const [timerState, setTimerState] = useState(false)
 
     return (
         <GlobalContext.Provider
@@ -14,7 +15,9 @@ export const GlobalProvider = ({
                 startState,
                 setStartState,
                 inputName,
-                setInputName
+                setInputName,
+                timerState,
+                setTimerState
             }}
         >
             {children}

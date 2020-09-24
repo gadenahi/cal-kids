@@ -16,42 +16,53 @@ function Keys() {
   const { inputName, setInputName } = useContext(GlobalContext)
   const [timer, setTimer] = useState(0)
   const increment = useRef(null)
+  const { timerState, setTimerState } = useContext(GlobalContext)
 
-  //   function safeEval(val){
-  //     return Function('"use strict";return (' + val + ')')();
-  // }
-
-  useEffect(() => { }, [startState]);
-  useEffect(() => { }, [timer]);
   useEffect(() => { }, [value1]);
   useEffect(() => { }, [value2]);
   useEffect(() => { }, [calState]);
+  useEffect(() => { }, [answer]);
+  useEffect(() => { }, [inputName]);
+  useEffect(() => { }, [timer]);
+  useEffect(() => {
+    if (increment.current !== null) {
+      clearInterval(increment.current)
+      setTimer(0)
+      setTimerState(false)
+    }
+    if (!timerState) {
+      console.log("hello")
+      handleStart()
+      setTimerState(true)
+    }
+  }, [startState])
 
   function handleBack() {
     clearInterval(increment.current)
-    setStartState(false)
     setTimer(0)
+    setTimerState(false)
+    setStartState(false)
   }
 
   const BackButton = () => {
     return (
       <Button
-      size="lg"
-      variant="back"
-      className="backpad"
-      onClick={(event) => handleBack()}
-    >
-      BACK
-    </Button>      
+        size="lg"
+        variant="back"
+        className="backpad"
+        onClick={(event) => handleBack()}
+      >
+        BACK
+      </Button>
     )
   }
 
   const DisplayName = () => {
     return (
-      <h2>Playing: {inputName} ({formatTime()})</h2>
+      <h2>PLAYING: {inputName} ({formatTime()})</h2>
     )
-  } 
-  
+  }
+
   function handleStart() {
     increment.current = setInterval(() => {
       setTimer((timer) => timer + 1)
@@ -65,7 +76,6 @@ function Keys() {
     const getHours = `0${Math.floor(timer / 3600)}`.slice(-2)
     return `${getHours} : ${getMinutes} : ${getSeconds}`
   }
-
 
   function handleAns() {
     if (value1 !== "" && value2 !== "") {
@@ -96,7 +106,7 @@ function Keys() {
     if (val === "") {
       return (
         <div className={`value-display ${item}-section`}>
-          <h3>{item}</h3>
+          <h3>{item}: </h3>
         </div>
       )
     } else {
@@ -121,7 +131,7 @@ function Keys() {
           variant="primary"
           disabled
         >
-        {calState}
+          {calState}
         </Button>
         {Items("Value2", value2)}
       </div>
@@ -130,16 +140,15 @@ function Keys() {
 
   const Equal = () => {
     return (
-        <Button
-          size="lg"
-          variant="primary"
-          disabled
-        >
+      <Button
+        size="lg"
+        variant="primary"
+        disabled
+      >
         =
-        </Button>
+      </Button>
     )
   }
-
 
   function handleKeyPad(event) {
     if (value1 === "") {
@@ -152,26 +161,26 @@ function Keys() {
   const OthersBtn = () => {
     return (
       <>
-      <Button
-      size="lg"
-      variant="warning"
-      className="clearpad"
-      onClick={(event) => handleClear()}
-    >
-      Clear
-    </Button>
-    <Button
-      size="lg"
-      variant="info"
-      className="enterpad"
-      onClick={() => handleAns()}
-    >
+        <Button
+          size="lg"
+          variant="warning"
+          className="clearpad"
+          onClick={(event) => handleClear()}
+        >
+          Clear
+        </Button>
+        <Button
+          size="lg"
+          variant="info"
+          className="enterpad"
+          onClick={() => handleAns()}
+        >
           Enter
-    </Button>
-    </>
+        </Button>
+      </>
     )
-
   }
+
   const cals = calsdata.map((data) => (
     <Button
       size="lg"
@@ -198,17 +207,10 @@ function Keys() {
     </Button>
   ));
 
-  if (startState) {
-    if (increment !== null) {
-      clearInterval(increment.current)
-    }
-    handleStart()
-  } 
-
   return (
     <Col className="keys-section" xs={12} md={12} lg={12}>
       <Col className="header-section" xs={10} md={10} lg={10}>
-      <BackButton />
+        <BackButton />
         <DisplayName />
       </Col>
       <Row>
@@ -216,26 +218,26 @@ function Keys() {
           <Display />
         </Col>
         <Col className="equal-section sub-section" xs={10} md={10} lg={1}>
-        <Equal />
+          <Equal />
         </Col>
         <Col className="sub-section" xs={10} md={6} lg={6}>
           {Items("Answer", answer)}
         </Col>
       </Row>
       <Col className="pads-section" xs={10} md={6} lg={5}>
-      <div id="pads">
+        <div id="pads">
           <div id="calkey">
             <div id="cal">
-            {cals}
+              {cals}
             </div>
             <div id="key">
-            {keys}
+              {keys}
             </div>
           </div>
           <div id="other">
-          <OthersBtn />
+            <OthersBtn />
           </div>
-      </div>
+        </div>
       </Col>
     </Col>
   );
