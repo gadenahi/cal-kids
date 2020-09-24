@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import '../../static/Keys.css'
 import { Row, Col, Button } from 'react-bootstrap';
 import { GlobalContext } from '../js/Global';
@@ -12,11 +12,60 @@ function Keys() {
   const [value2, setValue2] = useState("")
   const [calState, setCalState] = useState("+")
   const [answer, setAnswer] = useState("")
-  const { startState, setStartState} = useContext(GlobalContext)
+  const { startState, setStartState } = useContext(GlobalContext)
+  const { inputName, setInputName } = useContext(GlobalContext)
+  const [timer, setTimer] = useState(0)
+  const increment = useRef(null)
 
   //   function safeEval(val){
   //     return Function('"use strict";return (' + val + ')')();
   // }
+
+  useEffect(() => { }, [startState]);
+  useEffect(() => { }, [timer]);
+  useEffect(() => { }, [value1]);
+  useEffect(() => { }, [value2]);
+  useEffect(() => { }, [calState]);
+
+  function handleBack() {
+    clearInterval(increment.current)
+    setStartState(false)
+    setTimer(0)
+  }
+
+  const BackButton = () => {
+    return (
+      <Button
+      size="lg"
+      variant="back"
+      className="backpad"
+      onClick={(event) => handleBack()}
+    >
+      BACK
+    </Button>      
+    )
+  }
+
+  const DisplayName = () => {
+    return (
+      <h2>Playing: {inputName} ({formatTime()})</h2>
+    )
+  } 
+  
+  function handleStart() {
+    increment.current = setInterval(() => {
+      setTimer((timer) => timer + 1)
+    }, 1000)
+  }
+
+  const formatTime = () => {
+    const getSeconds = `0${(timer % 60)}`.slice(-2)
+    const minutes = `${Math.floor(timer / 60)}`
+    const getMinutes = `0${minutes % 60}`.slice(-2)
+    const getHours = `0${Math.floor(timer / 3600)}`.slice(-2)
+    return `${getHours} : ${getMinutes} : ${getSeconds}`
+  }
+
 
   function handleAns() {
     if (value1 !== "" && value2 !== "") {
@@ -58,7 +107,7 @@ function Keys() {
       return (
         <div className={`value-display ${item}-section`}>
           <h3>{item}: {val} </h3>
-          <ul>{items}</ul>
+          {items}
         </div>)
     }
   }
@@ -74,27 +123,23 @@ function Keys() {
         >
         {calState}
         </Button>
-
         {Items("Value2", value2)}
-        <Button
-          size="lg"
-          variant="warning"
-          className="clearpad"
-          onClick={(event) => handleClear()}
-        >
-          Clear
-        </Button>
-        <Button
-          size="lg"
-          variant="info"
-          className="keypad"
-          onClick={() => handleAns()}
-        >
-          Cal
-        </Button>
       </div>
     )
   }
+
+  const Equal = () => {
+    return (
+        <Button
+          size="lg"
+          variant="primary"
+          disabled
+        >
+        =
+        </Button>
+    )
+  }
+
 
   function handleKeyPad(event) {
     if (value1 === "") {
@@ -104,10 +149,29 @@ function Keys() {
     }
   }
 
-  useEffect(() => { }, [value1]);
-  useEffect(() => { }, [value2]);
-  useEffect(() => { }, [calState]);
+  const OthersBtn = () => {
+    return (
+      <>
+      <Button
+      size="lg"
+      variant="warning"
+      className="clearpad"
+      onClick={(event) => handleClear()}
+    >
+      Clear
+    </Button>
+    <Button
+      size="lg"
+      variant="info"
+      className="enterpad"
+      onClick={() => handleAns()}
+    >
+          Enter
+    </Button>
+    </>
+    )
 
+  }
   const cals = calsdata.map((data) => (
     <Button
       size="lg"
@@ -134,24 +198,44 @@ function Keys() {
     </Button>
   ));
 
-  return (
-    <Col xs={12} md={12} lg={12}>
-      <Row>
-        <Col className="sub-section" xs={10} md={5} lg={5}>
-          {Items("Answer", answer)}
-        </Col>
+  if (startState) {
+    if (increment !== null) {
+      clearInterval(increment.current)
+    }
+    handleStart()
+  } 
 
-        <Col className="sub-section" xs={10} md={5} lg={5}>
+  return (
+    <Col className="keys-section" xs={12} md={12} lg={12}>
+      <Col className="header-section" xs={10} md={10} lg={10}>
+      <BackButton />
+        <DisplayName />
+      </Col>
+      <Row>
+        <Col className="sub-section" xs={10} md={10} lg={3}>
           <Display />
         </Col>
+        <Col className="equal-section sub-section" xs={10} md={10} lg={1}>
+        <Equal />
+        </Col>
+        <Col className="sub-section" xs={10} md={6} lg={6}>
+          {Items("Answer", answer)}
+        </Col>
       </Row>
-      <Col className="pads-section" xs={10} md={4} lg={3}>
-      <div id="calpads">
-        {cals}
+      <Col className="pads-section" xs={10} md={6} lg={5}>
+      <div id="pads">
+          <div id="calkey">
+            <div id="cal">
+            {cals}
+            </div>
+            <div id="key">
+            {keys}
+            </div>
+          </div>
+          <div id="other">
+          <OthersBtn />
+          </div>
       </div>
-      <div id="keypads">
-        {keys}
-        </div>
       </Col>
     </Col>
   );

@@ -1,27 +1,25 @@
-body {
-  font-family: Helvetica;
+.header-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid;
+  border-color: fuchsia;
+  margin: 10px auto;
+  vertical-align: middle;
 }
 
-input {
-  font-size: 24px;
+.btn-back {
+  background-color: fuchsia;
+  color: white;
+  margin-right: auto;
 }
 
-label {
-  font-size: 24px;
-}
-
-.Cursor {
-  opacity: 0;
-}
-
-.landing-section h1 {
+.keys-section h2 {
   color: fuchsia;
   font-weight: bold;
+  margin: auto;
 }
 
-.landing-margin {
-  margin-top: 200px;
-}
 
 .apple{
     position: relative;
@@ -68,20 +66,34 @@ label {
     transform: translateX(-75%);
   }
   
+  #display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    /* border: 2px solid; */
+    /* margin: 10px auto; */
+  }
+
   .value-display {
     border: black;
     /* width: 500px; */
-    width: 100%;
+    /* width: 100%; */
     min-height: 225px;
     height: auto;
     border-style: solid;
   }
-  
+
   .Answer-section {
     border-style: solid;
-    border-color: red;
-    width: 100%;
+    border-color: Blue;
+    width: 680px;
+    /* width: 100%; */
     min-height: 500px;
+  }
+
+  .Answer-section h3 {
+    color: blue;
   }
 
   .value-display ul {
@@ -92,23 +104,135 @@ label {
       display: inline-block;
   }
 
+  .Value1-section {
+    width: 350px;
+  }
+
+  .Value2-section {
+    width: 350px;
+  }
+
   .sub-section {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
   }
 
   .btn {
     font-size: 24px;
+    border: 0.5px solid;
+    border-color: white;
   }
 
   .pads-section {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
   }
 
+  #calkey {
+    width: 350px;
+  }
+  .calpad {
+    height: 50px;
+    width: 50px;
+  }
 
-  @media (max-width: 500px) {
+  #cal {
+    width: 100px;
+    height: 100px;
+  }
+
+  .keypad {
+    height: 50px;
+    width: 50px;
+  }
+
+  #key {
+    width: 250px;
+    height: 100px;
+  }
+
+  #calkey div{
+    display: inline-block;
+  }
+
+  #other {
+    width: 350px;
+  }
+
+  .clearpad {
+    height: 50px;
+    width: 150px;
+  }
+
+  .enterpad {
+    height: 50px;
+    width: 200px;
+  }
+
+  @media (max-width: 770px) {
+    .btn-back {
+      font-size: 20px;
+      height: 40px;
+    }
     
+    .keys-section h2 {
+      font-size: 20px;
+      margin: auto;
+    }
+    
+    .value-display {
+      min-height: 80px;
+      min-width: 325px;
+    }
+    
+    .value-display h3 {
+      font-size: 18px;
+    }
+
+    .Value1-section {
+      width: 100%;
+    }
+  
+    .Value2-section {
+      width: 100%;
+    }
+
+    .equal-section {
+      top: -20px;
+    }
+
+    .Answer-section {
+      margin-top: -40px;
+      width: 80%;
+      min-height: 250px;
+    }
+
+    .apple{
+      margin-top: 7px;
+      width: 31px;
+      height: 30px;
+    }
+    
+    /* 葉っぱ */
+    .apple:before{
+      top: -5px;
+      left: 51%;
+      width: 10px;
+      height: 6px;
+    }
+    
+    /*　果梗　*/
+    .apple:after{
+      top: -5px;
+      left: 50%;
+      width: 2px;
+      height: 8px;
+      border-top: 5px solid #9A7229;
+      border-right: 4px solid #470800;
+    }
+
   }

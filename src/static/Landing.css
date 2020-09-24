@@ -1,0 +1,26 @@
+  .Cursor {
+    opacity: 0;
+  }
+  
+  .landing-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      min-height: 500px;
+      height: 500px;
+  }
+
+  .landing-section h1 {
+    color: fuchsia;
+    font-weight: bold;
+  }
+
+  .landing-section h4 {
+    color: fuchsia;
+  }
+
+  .landing-section form input {
+      height: 60px;
+      font-size: 30px;
+  }
