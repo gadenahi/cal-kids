@@ -1,0 +1,98 @@
+input {
+  font-size: 24px;
+}
+
+label {
+  font-size: 24px;
+}
+
+.landing-section form {
+  margin-top: 200px;
+}
+
+.apple{
+    position: relative;
+    margin-top: 15px;
+    width: 62px;
+    height: 60px;
+    border-radius: 90% 90% 100% 100% / 90% 100% 100% 100%;
+    background: #FD3924;
+    box-shadow: 
+       2px -4px   3px   0 #AE3C2A inset,
+       1px    0   1px   0 #B5553F inset,
+       2px    0   2px 2px #D88363 inset,
+      -6px  1px  25px 3px #F9F8F7 inset,
+      -3px  4px  10px   0 #000;
+  }
+  
+  /* 葉っぱ */
+  .apple:before{
+    position: absolute;
+    top: -5px;
+    left: 51%;
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 6px;
+    border-radius: 60% 0 100% 0 / 100% 0 100% 0;
+    background: #4E8920;
+    transform: rotate(-5deg);
+  }
+  
+  /*　果梗　*/
+  .apple:after{
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 8px;
+    border: 5px solid transparent;
+    border-top: 10px solid #9A7229;
+    border-right: 8px solid #470800;
+    border-radius: 100% 100% 0 0;
+    transform: translateX(-75%);
+  }
+  
+  .value-display {
+    border: black;
+    /* width: 500px; */
+    width: 100%;
+    min-height: 225px;
+    height: auto;
+    border-style: solid;
+  }
+  
+  .Answer-section {
+    border-style: solid;
+    border-color: red;
+    width: 100%;
+    min-height: 500px;
+  }
+
+  .value-display ul {
+    text-align: left;  
+  }
+
+  .value-display li {
+      display: inline-block;
+  }
+
+  .sub-section {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn {
+    font-size: 24px;
+  }
+
+  .pads-section {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
