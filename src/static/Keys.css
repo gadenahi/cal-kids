@@ -14,6 +14,10 @@
   margin-right: auto;
 }
 
+.keys-section {
+  margin: auto;
+}
+
 .keys-section h2 {
   color: fuchsia;
   font-weight: bold;
@@ -69,25 +73,48 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-flow: column;
+  /* flex-flow: column; */
 }
 
 .value-display {
   border: black;
-  min-height: 225px;
+  min-height: 330px;
   height: auto;
   border-style: solid;
+}
+
+@keyframes borderFlashing {
+  0% {
+    border: medium solid #ff00ff;
+  }
+  100% {
+    border: medium solid transparent;
+  }
+}
+
+.flashed {
+  border:medium solid #ff00ff;
+  animation: borderFlashing 1s ease infinite alternate;
+}
+
+.equal-section {
+  margin: auto;
+  width: 50px;
 }
 
 .Answer-section {
   border-style: solid;
   border-color: Blue;
-  width: 680px;
-  min-height: 500px;
+  width: 390px;
+  min-height: 330px;
 }
 
 .Answer-section h3 {
   color: blue;
+}
+
+.Answer-section h4 {
+  color: red;
 }
 
 .value-display ul {
@@ -99,11 +126,11 @@
 }
 
 .Value1-section {
-  width: 350px;
+  width: 200px;
 }
 
 .Value2-section {
-  width: 350px;
+  width: 200px;
 }
 
 .sub-section {
@@ -111,6 +138,17 @@
   justify-content: center;
   align-items: center;
   margin: 10px auto;
+}
+
+.answer-section {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.value-section {
+  display: flex;
+  justify-content: flex-end;
+  /* margin-left: auto; */
 }
 
 .btn {
@@ -168,10 +206,14 @@
   width: 200px;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 995px) {
+  /* #display {
+      flex-flow: column;
+  } */
+
   .btn-back {
-    font-size: 20px;
-    height: 40px;
+    font-size: 16px;
+    height: 32px;
   }
   
   .keys-section h2 {
@@ -180,20 +222,20 @@
   }
   
   .value-display {
-    min-height: 80px;
-    min-width: 325px;
+    min-height: 135px;
+    width: 165px;
   }
   
   .value-display h3 {
     font-size: 18px;
   }
 
-  .Value1-section {
-    width: 100%;
+  .answer-section {
+    justify-content: center;
   }
 
-  .Value2-section {
-    width: 100%;
+  .value-section {
+    justify-content: center;
   }
 
   .equal-section {
@@ -202,8 +244,9 @@
 
   .Answer-section {
     margin-top: -40px;
-    width: 80%;
-    min-height: 250px;
+    /* width: 80%; */
+    min-height: 160px;
+    width: 310px;
   }
 
   .apple{

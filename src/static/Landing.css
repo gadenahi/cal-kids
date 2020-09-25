@@ -24,3 +24,23 @@
   height: 60px;
   font-size: 30px;
 }
+
+.landing-section form input.submit-button {
+  color: white;
+  height: 120px;
+  width: 120px;
+  border-radius: 60px;
+  border: solid 1px pink;
+  box-shadow: 3px 3px pink;
+  transition: 0.2s;
+  background-color: fuchsia;
+}
+
+.landing-section form input.submit-button:hover {
+  background-color: orange;
+
+}
+
+.landing-section form input.submit-button:active {
+  transform: translateY(2px);
+}

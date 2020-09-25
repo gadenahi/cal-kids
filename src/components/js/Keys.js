@@ -7,16 +7,15 @@ import { GlobalContext } from '../js/Global';
 function Keys() {
   const keysdata = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
   const calsdata = ['+', '-', 'x', '÷']
-
   const [value1, setValue1] = useState("")
   const [value2, setValue2] = useState("")
   const [calState, setCalState] = useState("+")
   const [answer, setAnswer] = useState("")
   const { startState, setStartState } = useContext(GlobalContext)
-  const { inputName, setInputName } = useContext(GlobalContext)
+  const { inputName } = useContext(GlobalContext)
   const [timer, setTimer] = useState(0)
   const increment = useRef(null)
-  const { timerState, setTimerState } = useContext(GlobalContext)
+  const { setTimerState } = useContext(GlobalContext)
 
   useEffect(() => { }, [value1]);
   useEffect(() => { }, [value2]);
@@ -25,17 +24,16 @@ function Keys() {
   useEffect(() => { }, [inputName]);
   useEffect(() => { }, [timer]);
   useEffect(() => {
-    if (increment.current !== null) {
+    if ( !startState ) {
       clearInterval(increment.current)
       setTimer(0)
       setTimerState(false)
     }
-    if (!timerState) {
-      console.log("hello")
+    else {
       handleStart()
       setTimerState(true)
     }
-  }, [startState])
+  }, [startState, setTimerState])
 
   function handleBack() {
     clearInterval(increment.current)
@@ -103,21 +101,41 @@ function Keys() {
   }
 
   const Items = (item, val) => {
+    var select = ""
+    if (item === "Value1" && val==="") {
+      select = "flashed"
+    } else if (value1 !== "" && item === "Value2" && val === "") {
+      select = "flashed"
+    } else if (value1 !== "" && value2 !== "") {
+      select = "flashed"
+    }
+    var viewItem = item
+    if (item !== "Answer") {
+      viewItem = ""
+    }
+
     if (val === "") {
       return (
-        <div className={`value-display ${item}-section`}>
-          <h3>{item}: </h3>
+        <div className={`value-display ${item}-section ${select}`}>
+          <h3> {viewItem} </h3>
         </div>
       )
     } else {
       const items = []
+      var message = ""
+      const total = val
+      if (val > 18) {
+        val = 18
+        message = "Too Many Apples"
+      }
       for (var i = 0; i < val; i++) {
         items.push(<li key={i} className="apple"></li>)
       }
       return (
         <div className={`value-display ${item}-section`}>
-          <h3>{item}: {val} </h3>
+          <h3>{viewItem} {total} </h3>
           {items}
+          <h4>{message}</h4>
         </div>)
     }
   }
@@ -127,6 +145,7 @@ function Keys() {
       <div id="display">
         {Items("Value1", value1)}
         <Button
+          className="calpad"
           size="lg"
           variant="primary"
           disabled
@@ -141,6 +160,7 @@ function Keys() {
   const Equal = () => {
     return (
       <Button
+        className="calpad"
         size="lg"
         variant="primary"
         disabled
@@ -209,18 +229,18 @@ function Keys() {
 
   return (
     <Col className="keys-section" xs={12} md={12} lg={12}>
-      <Col className="header-section" xs={10} md={10} lg={10}>
+      <Col className="header-section" xs={12} md={10} lg={9}>
         <BackButton />
         <DisplayName />
       </Col>
       <Row>
-        <Col className="sub-section" xs={10} md={10} lg={3}>
+        <Col className="sub-section value-section" xs={10} md={10} lg={6}>
           <Display />
         </Col>
         <Col className="equal-section sub-section" xs={10} md={10} lg={1}>
           <Equal />
         </Col>
-        <Col className="sub-section" xs={10} md={6} lg={6}>
+        <Col className="sub-section answer-section" xs={12} md={10} lg={5}>
           {Items("Answer", answer)}
         </Col>
       </Row>

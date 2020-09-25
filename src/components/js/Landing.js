@@ -30,12 +30,16 @@ function Landing() {
   return (
     <Col xs={12} md={12} lg={12} >
       <div className="landing-section">
-        <Typist className="landing-margin">
+        <Typist>
           <h1>Cal Kids</h1>
         </Typist>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Input label="Name" register={register} required />
-          <input type="submit" value="Start" />
+          <div>
+            <Input label="Name" register={register} required />
+            </div>
+            <div>
+            <input className="submit-button" type="submit" value="START" />
+            </div>
         </form>
       </div>
     </Col>

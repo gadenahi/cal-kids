@@ -6,7 +6,7 @@ import { GlobalContext } from '../js/Global';
 
 
 function App() {
-  const { startState, setStartState } = useContext(GlobalContext)
+  const { startState } = useContext(GlobalContext)
   
   if (startState) {
     return (
