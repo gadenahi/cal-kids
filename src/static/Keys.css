@@ -272,4 +272,8 @@
     border-top: 5px solid #9A7229;
     border-right: 4px solid #470800;
   }
+  
+  .pads-section {
+    margin: -10px auto;
+  }
 }

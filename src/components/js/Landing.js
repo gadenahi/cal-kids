@@ -17,7 +17,7 @@ function Landing() {
   const Input = ({ label, register, required }) => (
     <>
       <h4>Practice for Single Digit Calculator</h4>
-      <h3>Start with your name</h3>
+      <h3>Start with your nick name</h3>
       <input name={label} ref={register({ required })} />
     </>
   );
@@ -36,10 +36,10 @@ function Landing() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <Input label="Name" register={register} required />
-            </div>
-            <div>
+          </div>
+          <div>
             <input className="submit-button" type="submit" value="START" />
-            </div>
+          </div>
         </form>
       </div>
     </Col>
