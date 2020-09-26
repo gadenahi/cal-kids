@@ -23,6 +23,9 @@
 .landing-section form input {
   height: 60px;
   font-size: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .landing-section form input.submit-button {
@@ -47,12 +50,4 @@
 
 .landing-section form input.submit-button:active {
   transform: translateY(2px);
-}
-
-@media (max-width: 500px) {
-  .landing-section form input.submit-button {
-    border: none;
-    box-shadow: none;
-    transition: none;
-  }
 }
