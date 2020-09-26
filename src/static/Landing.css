@@ -48,3 +48,11 @@
 .landing-section form input.submit-button:active {
   transform: translateY(2px);
 }
+
+@media (max-width: 500px) {
+  .landing-section form input.submit-button {
+    border: none;
+    box-shadow: none;
+    transition: none;
+  }
+}
