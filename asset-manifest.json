@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/cal-kids/static/css/main.71308d70.chunk.css",
+    "main.css": "/cal-kids/static/css/main.fcfd335c.chunk.css",
     "main.js": "/cal-kids/static/js/main.ebacf438.chunk.js",
     "main.js.map": "/cal-kids/static/js/main.ebacf438.chunk.js.map",
     "runtime-main.js": "/cal-kids/static/js/runtime-main.cd373f46.js",
@@ -8,15 +8,15 @@
     "static/js/2.1583ff94.chunk.js": "/cal-kids/static/js/2.1583ff94.chunk.js",
     "static/js/2.1583ff94.chunk.js.map": "/cal-kids/static/js/2.1583ff94.chunk.js.map",
     "index.html": "/cal-kids/index.html",
-    "precache-manifest.1c0e39bb0f94ce929f9a36ed6052e1eb.js": "/cal-kids/precache-manifest.1c0e39bb0f94ce929f9a36ed6052e1eb.js",
+    "precache-manifest.2711313d9d0e97d2651e27c0b2ac783e.js": "/cal-kids/precache-manifest.2711313d9d0e97d2651e27c0b2ac783e.js",
     "service-worker.js": "/cal-kids/service-worker.js",
-    "static/css/main.71308d70.chunk.css.map": "/cal-kids/static/css/main.71308d70.chunk.css.map",
+    "static/css/main.fcfd335c.chunk.css.map": "/cal-kids/static/css/main.fcfd335c.chunk.css.map",
     "static/js/2.1583ff94.chunk.js.LICENSE.txt": "/cal-kids/static/js/2.1583ff94.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.cd373f46.js",
     "static/js/2.1583ff94.chunk.js",
-    "static/css/main.71308d70.chunk.css",
+    "static/css/main.fcfd335c.chunk.css",
     "static/js/main.ebacf438.chunk.js"
   ]
 }
