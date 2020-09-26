@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "df2272903ac1084c7f4819287ccb3e61",
+    "revision": "eac617b323d23199b7aa10caa39012ca",
     "url": "/cal-kids/index.html"
   },
   {
-    "revision": "41f4f30278467aef2bf9",
-    "url": "/cal-kids/static/css/main.187440df.chunk.css"
+    "revision": "aac7d863b9c27bb0c0e4",
+    "url": "/cal-kids/static/css/main.a7993987.chunk.css"
   },
   {
     "revision": "1010f367fa72645fc032",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cal-kids/static/js/2.1583ff94.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "41f4f30278467aef2bf9",
-    "url": "/cal-kids/static/js/main.97f7772e.chunk.js"
+    "revision": "aac7d863b9c27bb0c0e4",
+    "url": "/cal-kids/static/js/main.ebacf438.chunk.js"
   },
   {
     "revision": "083b9a4ed512b9b70a9f",
