@@ -23,29 +23,30 @@
 .landing-section form input {
   height: 60px;
   font-size: 30px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  border-radius: 10px;
 }
 
 .landing-section form input.submit-button {
   color: white;
   height: 120px;
   width: 120px;
-  border-radius: 60px;
-  -moz-border-radius: 60px;
-  -webkit-border-radius: 60px;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   -webkit-text-size-adjust: none;
   border: solid 1px pink;
   box-shadow: 3px 3px pink;
   transition: 0.2s;
   background-color: fuchsia;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .landing-section form input.submit-button:hover {
   background-color: orange;
-
 }
 
 .landing-section form input.submit-button:active {
