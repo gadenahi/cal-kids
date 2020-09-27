@@ -43,6 +43,7 @@
   background-color: fuchsia;
   text-align: center;
   vertical-align: middle;
+  padding: 0;
 }
 
 .landing-section form input.submit-button:hover {
